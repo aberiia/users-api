@@ -9,9 +9,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/", async (req, res) => {
+app.get("/limit=:limit&cursor=:cursor", async (req, res) => {
+	const {limit, cursor} = req.params;
+	console.log(limit, cursor)
   try {
-    let users = await getUsers();
+    let users = await getUsers(limit, cursor);
     res.status(200).send(users);
   } catch(error) {
     res.status(500).send(error);
