@@ -1,20 +1,34 @@
+require('dotenv').config();
 const { getUsers, deleteUser, createUser, editUserData } = require("./controllers");
 const express = require("express");
 var cors = require("cors");
 
 const { PORT } = require("./config/config");
+const getUsersCount = require("./controllers/getUsersCount");
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-app.get("/limit=:limit&cursor=:cursor", async (req, res) => {
-	const {limit, cursor} = req.params;
-	console.log(limit, cursor)
+app.get("/limit=:limit&offset=:offset", async (req, res) => {
+	const {limit, offset} = req.params;
+	let convertedOffset = +offset;
+	let convertedLimit = +limit;
+	console.log('limit', limit, 'offset', offset)
   try {
-    let users = await getUsers(limit, cursor);
-    res.status(200).send(users);
+
+	let usersCountObj = await getUsersCount();
+    let users = await getUsers(offset, limit);
+
+	let count = usersCountObj[0].count;
+	let lastUsersAmount=  Math.round(count % convertedLimit);
+	if((convertedLimit+convertedOffset) >= count){
+		res.status(200).send({users, count, isEnd: true,limit: lastUsersAmount, offset: convertedOffset})
+	}else {
+		res.status(200).send({users, count, isEnd: false,limit: convertedLimit, offset: convertedOffset+convertedLimit });
+	}
+  
   } catch(error) {
     res.status(500).send(error);
   }
