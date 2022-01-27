@@ -9,9 +9,7 @@ function createUser(id, firstname, lastname, birthDate, email) {
   return new Promise((resolve, reject) => {
     db.run(sql, (err) => {
       if (err) return console.log(err.message);
-      setTimeout(() => {
         resolve`User with id${id} has been created successfully`;
-      }, 100);
     });
   });
 }

@@ -12,9 +12,8 @@ function editUserData(id, firstname, lastname) {
         console.log(err);
         reject("Cannot update user's information");
       }
-      setTimeout(() => {
-        resolve`User's info updated`;
-      }, 100)
+        resolve `User's info updated`;
+   
         
     
     });

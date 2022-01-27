@@ -1,16 +1,14 @@
 const db = require("../../entities/Database");
 
-function getUsers(offset,limit) {
+function getPaginatedUsers(offset,limit) {
   return new Promise((resolve, reject) => {
     db.all(`SELECT * FROM users LIMIT ${offset}, ${limit}`, (err, row) => {
-        setInterval(() => {
-          return resolve(row);
-        }, 100);
-
       if (err) reject("Cannot find users");
+      resolve(row);
+ 
       
     });
   });
 }
 
-module.exports = getUsers;
+module.exports = getPaginatedUsers;

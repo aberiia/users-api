@@ -1,9 +1,11 @@
-const getUsers = require('./getUsers');
+const getPaginatedUsers = require('./getPaginatedUsers');
 const deleteUser = require('./deleteUser');
 const createUser = require('./createNewUser');
 const editUserData = require('./editUserData');
+const getUsersWithQuery = require('./getUsersWithQuery');
 module.exports = {
-    getUsers,
+    getPaginatedUsers,
+    getUsersWithQuery,
     deleteUser,
     createUser,
     editUserData
