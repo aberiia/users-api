@@ -14,4 +14,14 @@ function createUser(id, firstname, lastname, birthDate, email) {
   });
 }
 
-module.exports = createUser;
+module.exports = async (req, res) => {
+  const { id, firstname, lastname, birthDate, email } = req.params;
+  try {
+    let createdUserStatus = await createUser(id, firstname, lastname, birthDate, email);
+    console.log("CREATED USER", id);
+    res.status(200).send('User created successfully');
+  } catch (error) {
+    console.log("ERROR: createNewUser controller error: ", error)
+    res.status(500).send("Internal server error");
+  }
+};
