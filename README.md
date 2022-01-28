@@ -27,10 +27,10 @@ Response body example ```http://localhost:8080/api/users```
    [ {
         "id": 4,
         "userId": "e22de32e-4f90-45c3-a153-ae87b24c159a",
-        "firstname": "Anastasia",
-        "lastname": "Arr",
+        "firstname": "Max",
+        "lastname": "Stoun",
         "birthDate": "1643029822017",
-        "email": "jdhjksahdjk",
+        "email": "max@example.com",
         "phone": null,
         "isDeleted": "false",
         "picture": "NULL"
@@ -46,10 +46,10 @@ Response body example ```http://localhost:8080/users=1```
     {
         "id": 4,
         "userId": "e22de32e-4f90-45c3-a153-ae87b24c159a",
-        "firstname": "Anastasia",
-        "lastname": "Arr",
+        "firstname": "Max",
+        "lastname": "Stoun",
         "birthDate": "1643029822017",
-        "email": "jdhjksahdjk",
+        "email": "max@example.com",
         "phone": null,
         "isDeleted": "false",
         "picture": "NULL"
@@ -68,10 +68,10 @@ Response body example ```http://localhost:8080/limit=3&offset=0```
         {
             "id": 4,
             "userId": "e22de32e-4f90-45c3-a153-ae87b24c159a",
-            "firstname": "Anastasia",
-            "lastname": "Arr",
+            "firstname": "Max",
+            "lastname": "Stoun",
             "birthDate": "1643029822017",
-            "email": "jdhjksahdjk",
+            "email": "max@example.com",
             "phone": null,
             "isDeleted": "false",
             "picture": "NULL"
@@ -79,10 +79,10 @@ Response body example ```http://localhost:8080/limit=3&offset=0```
         {
             "id": 14,
             "userId": "fedb0d4b-0087-4728-b7ea-9d2f7b5bfea1",
-            "firstname": "G",
-            "lastname": "H",
+            "firstname": "Steve",
+            "lastname": "Harrison",
             "birthDate": "1643267019435",
-            "email": "dkljalksd",
+            "email": "steve@example.com",
             "phone": null,
             "isDeleted": "false",
             "picture": "NULL"
@@ -90,10 +90,10 @@ Response body example ```http://localhost:8080/limit=3&offset=0```
         {
             "id": 16,
             "userId": "062312a2-7d0d-408d-840b-a0916bdf661a",
-            "firstname": "Meow",
-            "lastname": "jaksjhsd",
+            "firstname": "Cat",
+            "lastname": "Meow",
             "birthDate": "1643271958934",
-            "email": "djhajksd",
+            "email": "cat@example.com",
             "phone": null,
             "isDeleted": "false",
             "picture": "NULL"
@@ -135,7 +135,7 @@ Response body example
 ```json
 {
     "fieldname": "files",
-    "originalname": «original-filename.jpg",
+    "originalname": "original-filename.jpg",
     "encoding": "7bit",
     "mimetype": "image/jpeg",
     "destination": "./images/",
