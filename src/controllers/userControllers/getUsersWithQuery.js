@@ -1,4 +1,4 @@
-const db = require("../../entities/Database");
+const db = require("../../../entities/Database");
 
 function getUsersWithQuery(query) {
   return new Promise((resolve, reject) => {

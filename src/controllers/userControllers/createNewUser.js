@@ -1,4 +1,4 @@
-const db = require("../../entities/Database");
+const db = require("../../../entities/Database");
 
 function createUser(id, firstname, lastname, birthDate, email) {
   console.log("createUserData:", id, firstname, lastname, birthDate, email);

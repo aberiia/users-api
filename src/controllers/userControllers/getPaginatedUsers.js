@@ -1,4 +1,4 @@
-const db = require("../../entities/Database");
+const db = require("../../../entities/Database");
 const getUsersCount = require("./getUsersCount");
 
 function getPaginatedUsers(offset, limit) {
@@ -22,11 +22,11 @@ module.exports = async (req, res) => {
     let count = usersCountObj[0].count;
     let lastUsersAmount = Math.round(count % convertedLimit);
 
-    if (users.length === 0) {
-      res.status(404).send("Cannot find users");
-    }
+    // if (users.length === 0) {
+    //   res.status(200).send([]);
+    // }
     // if 3 + 6 > 8 , limit becomes 2, the remainder when usersAmount(8) is divided by limit(3)
-    else if (convertedLimit + convertedOffset >= count) {
+   if (convertedLimit + convertedOffset >= count) {
       res.status(200).send({
         users,
         count,

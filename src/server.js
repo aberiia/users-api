@@ -8,7 +8,8 @@ const {
   getUsersWithQuery,
   addUserPic,
   getUserPic
-} = require("./controllers");
+} = require("./controllers/userControllers");
+const { logInUser } = require("./controllers/authControllers");
 const multer = require('multer');
 const express = require("express");
 const cors = require("cors");
@@ -26,16 +27,46 @@ const deleteUserHandler = `/api/deleteUser/:userId`;
 const createUserHandler = "/api/createUser/id=:id&firstname=:firstname&lastname=:lastname&birthDate=:birthDate&email=:email";
 const addUserPicHandler = '/api/upload-user-image';
 const getUserPicHandler = "/api/users/getImage";
+
+const loginHandler = "/api/auth/login"
 app.use(express.json());
 app.use(cors());
 
-// FOR ADVANCED CORS USAGE >
-// app.use(
-//   express.urlencoded(),
-//   cors({
-//       origin: 'http://localhost:3000'
-//   })
-// );
+
+
+// // FOR ADVANCED CORS USAGE >
+// // app.use(
+// //   express.urlencoded(),
+// //   cors({
+// //       origin: 'http://localhost:3000'
+// //   })
+// // );
+
+
+// app.use((req, res, next) => {
+//   if (req.headers.authorization) {
+//     jwt.verify(
+//       req.headers.authorization.split(' ')[1],
+//       tokenKey,
+//       (err, payload) => {
+//         if (err) next()
+//         else if (payload) {
+//           for (let user of users) {
+//             if (user.id === payload.id) {
+//               req.user = user
+//               next()
+//             }
+//           }
+
+//           if (!req.user) next()
+//         }
+//       }
+//     )
+//   }
+
+//   next()
+// })
+
 
 app.get(getAllUsersHandler, getUsers);
 app.get(getUsersWithQueryHandler, getUsersWithQuery);
@@ -44,6 +75,7 @@ app.get(getUserPicHandler, getUserPic);
 app.post(editUserDataHandler, editUserData);
 app.post(createUserHandler, createUser);
 app.post(addUserPicHandler, upload.single('files'), addUserPic);
+app.post(loginHandler, logInUser)
 app.delete(deleteUserHandler, deleteUser);
 
 

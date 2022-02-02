@@ -1,4 +1,4 @@
-const db = require("../../entities/Database");
+const db = require("../../../entities/Database");
 const fs = require('fs');
 
 module.exports = function async (req, res) {

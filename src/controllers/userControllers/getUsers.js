@@ -1,4 +1,4 @@
-const db = require("../../entities/Database");
+const db = require("../../../entities/Database");
 
 module.exports = async (req, res) => {
   try {
@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
       });
     });
     if (users.length === 0) {
-      res.status(404).send("Cannot find users");
+      res.status(200).send([]);
     } else {
       res.status(200).send(users);
     }

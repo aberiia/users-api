@@ -1,4 +1,4 @@
-const db = require("../../entities/Database");
+const db = require("../../../entities/Database");
 
 function getUsersCount() {
   return new Promise((resolve, reject) => {

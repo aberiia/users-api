@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = class User {
-  constructor(id, gender, firstname, lastname, borthDate, email, phone, city, picture) {
+  constructor(id, gender, firstname, lastname, borthDate, email, phone, city, picture, isBanned, isDeleted, createdDate, status) {
     this.id = id;
     this.gender = gender;
     this.firstname = firstname;
